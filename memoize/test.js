@@ -11,6 +11,8 @@ describe('memoize', function() {
       return fib(n - 1) + fib(n - 2);
     });
     fib(10);
+    fib(10);
+    console.log(called);
     assert.equal(called, 11);
   });
 
@@ -21,7 +23,9 @@ describe('memoize', function() {
       if (n < 2) return n;
       return fib(n - 1, unused) + fib(n - 2, unused);
     });
+    console.log(1);
     fib(10, 'x');
+    console.log(2);
     fib(10, 'y');
     assert.equal(called, 22);
 
